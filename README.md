@@ -1,5 +1,5 @@
 ## davinci-kit-for-raspberry-pi
-This repository is for SunFounder Da Vinci Kit for Raspberry Pi. you can buy it on [our website](www.sunfounder.com), or search sunfounder in Amazon.
+This repository is for SunFounder Da Vinci Kit for Raspberry Pi. you can buy it on [our website](https://www.sunfounder.com/), or search sunfounder in Amazon.
 
 Quick Links:
 
