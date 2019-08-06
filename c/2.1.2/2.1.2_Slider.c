@@ -4,8 +4,7 @@
 * Author 		: Dream
 * E-mail 		: support@sunfounder.com
 * Website 		: www.sunfounder.com
-* Update 		: Dream    <2016-07-26>
-* Detail		: <update details>
+* Update 		: Daisy    <2019-08-05>
 **********************************************************************/
 #include <wiringPi.h>
 #include <stdio.h>
@@ -25,21 +24,6 @@ int main(void)
 	pinMode(slidePin, INPUT);
 	pinMode(led1, OUTPUT);
 	pinMode(led2, OUTPUT);
-
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|              Slide Switch            |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|      Middle pin of slide switch      |\n");
-	printf("|            connect to #17            |\n");
-	printf("|                                      |\n");
-	printf("|slide switch to contral which led on. |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================");
-	printf("\n");
-	printf("\n");
 	
 	while(1){
 		// slide switch high, led1 on

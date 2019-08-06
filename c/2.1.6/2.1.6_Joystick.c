@@ -1,93 +1,94 @@
 /**********************************************************************
 * Filename    : 2.1.6_Joystick.c
-* Description : Read Joystick
+* Description : Read the x, y and button value of Joystick
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/01
 **********************************************************************/
-#include <stdio.h>
 #include <wiringPi.h>
-#include <pcf8591.h>
+#include <stdio.h>
+#include <softPwm.h>
 
-#define PCF       120
-#define uchar	unsigned char
+typedef unsigned char uchar;
+typedef unsigned int uint;
 
-int AIN0 = PCF + 0;
-int AIN1 = PCF + 1;
+#define     ADC_CS    0
+#define     ADC_CLK   1
+#define     ADC_DIO   2
+#define     BtnPin    3
 
+uchar get_ADC_Result(uint channel)
+{
+    uchar i;
+    uchar dat1=0, dat2=0;
+    int sel = channel > 1 & 1;
+    int odd = channel & 1;
 
-int direction(){
-	int x, y, b;
-	int tmp;
-	x = analogRead(AIN1);
-	y = analogRead(AIN0);
-	b = digitalRead(0);
-	//printf("%d , %d , %d \n",x,y,b);
-	if (y <= 5)
-		{tmp = 1;		// up
-		}
-	if (y >= 250)
-		{tmp = 2;		// down
-		}
-	if (x <= 5)
-		{tmp = 3;		// left
-		}
-	if (x >= 250)
-		{tmp = 4;		// right
-		}
-	if (b == 0)
-		{tmp = 5;		// button preesd
-		}
-	if (x-125<60 && x-125>-60 && y-125<60 && y-125>-60 && b == 1)
-		{tmp = 0;		// home position
-		}
-	return tmp;
+    pinMode(ADC_DIO, OUTPUT);
+    digitalWrite(ADC_CS, 0);
+    // Start bit
+    digitalWrite(ADC_CLK,0);
+    digitalWrite(ADC_DIO,1);    delayMicroseconds(2);
+    digitalWrite(ADC_CLK,1);    delayMicroseconds(2);
+   //Single End mode
+    digitalWrite(ADC_CLK,0);
+    digitalWrite(ADC_DIO,1);    delayMicroseconds(2);
+    digitalWrite(ADC_CLK,1);    delayMicroseconds(2);
+    // ODD
+    digitalWrite(ADC_CLK,0);
+    digitalWrite(ADC_DIO,odd);  delayMicroseconds(2);
+    digitalWrite(ADC_CLK,1);    delayMicroseconds(2);
+    //Select
+    digitalWrite(ADC_CLK,0);
+    digitalWrite(ADC_DIO,sel);    delayMicroseconds(2);
+    digitalWrite(ADC_CLK,1);
+
+    digitalWrite(ADC_DIO,1);    delayMicroseconds(2);
+    digitalWrite(ADC_CLK,0);
+    digitalWrite(ADC_DIO,1);    delayMicroseconds(2);
+
+    for(i=0;i<8;i++)
+    {
+        digitalWrite(ADC_CLK,1);    delayMicroseconds(2);
+        digitalWrite(ADC_CLK,0);    delayMicroseconds(2);
+
+        pinMode(ADC_DIO, INPUT);
+        dat1=dat1<<1 | digitalRead(ADC_DIO);
+    }
+
+    for(i=0;i<8;i++)
+    {
+        dat2 = dat2 | ((uchar)(digitalRead(ADC_DIO))<<i);
+        digitalWrite(ADC_CLK,1);    delayMicroseconds(2);
+        digitalWrite(ADC_CLK,0);    delayMicroseconds(2);
+    }
+
+    digitalWrite(ADC_CS,1);
+    pinMode(ADC_DIO, OUTPUT);
+    return(dat1==dat2) ? dat1 : 0;
 }
 
-int main (void)
+int main(void)
 {
-	int tmp;
-	int status = 0;
-	if(wiringPiSetup() == -1){ //when initialize wiring failed,print message to screen
-    printf("setup wiringPi failed !");
-    return 1; 
+    uchar x_val;
+    uchar y_val;
+    uchar btn_val;
+    if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+        printf("setup wiringPi failed !");
+        return 1;
     }
-	pinMode(0,INPUT);
-	pullUpDnControl(0,PUD_UP);
+    pinMode(BtnPin,  INPUT);
+    pullUpDnControl(BtnPin, PUD_UP);
+    pinMode(ADC_CS,  OUTPUT);
+    pinMode(ADC_CLK, OUTPUT);
 
-	// Setup pcf8591 on base pin 120, and address 0x48
-	pcf8591Setup (PCF, 0x48);
-    printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|               Joystick               |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|           SDA,SCL connect to         |\n");
-	printf("|   the corresponding pin of PCF8591   |\n");
-	printf("|                                      |\n");
-	printf("|            Use Joystick input        |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
-	while(1) // loop forever
-	{
-		tmp = direction();
-		if (tmp != status)
-		{
-			switch (tmp)
-			{
-				case 1:printf("up \n");break;
-				case 2:printf("down \n");break;
-				case 3:printf("left \n");break;
-				case 4:printf("right \n");break;
-				case 5:printf("presssd \n");break;
-				case 0:printf("home \n");break;
-			}
-			status = tmp;
-		}
-	}
-	return 0 ;
+    while(1){
+        x_val = get_ADC_Result(0);
+        y_val = get_ADC_Result(1);
+        btn_val = digitalRead(BtnPin);
+        printf("x = %d, y = %d, btn = %d\n", x_val, y_val, btn_val);
+        delay(100);
+    }
+    return 0;
 }

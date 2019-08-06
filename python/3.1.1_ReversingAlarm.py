@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import LCD1602
 import time
 import RPi.GPIO as GPIO
@@ -72,7 +73,6 @@ def loop():
                     time.sleep(0.05)
                     GPIO.output(BUZZER, GPIO.LOW)
                     time.sleep(0.05)
-
 
 if __name__ == "__main__":
     setup()

@@ -182,20 +182,6 @@ keys = 	[	'1','2','3','A',
 			'*','0','#','D'		]
 rowsPins = [12,16,18,22]
 colsPins = [19,15,13,11]	
-def print_msg():
-	print ("========================================")
-	print ("|                 Keypad               |")
-	print ("|    ------------------------------    |")
-	print ("|   Pin connect to #18 #23 #24 #25     |")
-	print ("|                  MOSI #22 #27 #17    |")
-	print ("|                                      |")
-	print ("|             Use Keypad input         |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
 
 def loop():
 	keypad = Keypad(keys,rowsPins,colsPins,ROWS,COLS)
@@ -206,7 +192,6 @@ def loop():
 			print ("You Pressed Key : %c "%(key) )
 			
 if __name__ == '__main__':     # Program start from here
-	print_msg()
 	try:
 		loop()
 	except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the program destroy() will be  executed.

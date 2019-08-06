@@ -1,25 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import RPi.GPIO as GPIO
 
 TiltPin = 11
 Gpin   = 13
 Rpin   = 15
-
-def print_message():
-	print ("========================================")
-	print ("|           Tilt control LED           |")
-	print ("|    ------------------------------    |")
-	print ("|         Tilt connect to #17          |")
-	print ("|      Green LED connect to #18        |")
-	print ("|        Red LED connect to #18        |")
-	print ("|                                      |")
-	print ("|       User Tilt to control LED       |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
 
 def setup():
 	GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
@@ -56,7 +40,6 @@ def destroy():
 	GPIO.cleanup()                     # Release resource
 
 if __name__ == '__main__':     # Program start from here
-	print_message()
 	setup()
 	try:
 		loop()

@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/02
 **********************************************************************/
 #include <wiringPi.h>
 #include <stdio.h>
@@ -75,18 +75,6 @@ void timer(int  sig){       //Timer function
 int main(void)
 {
     int i;
-    printf("\n");
-	printf("========================================\n");
-	printf("|        4 Digit 7-Segment Display     |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|     4 Digit display common pin       |\n");
-	printf("|         connect to #17 #27 #22 MOSI  |\n");
-	printf("|     74HC595 CH_CP ST_CP DS pin       |\n");
-	printf("|         connect to #18 #23 #24       |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
 
     if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
         printf("setup wiringPi failed !");

@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    209/08/02
 **********************************************************************/
 #include <wiringPi.h>
 #include <stdio.h>
@@ -13,7 +13,7 @@
 #define   RCLK  1   //memory clock input(STCP)
 #define   SRCLK 2   //shift register clock input(SHCP)
 
-unsigned char SegCode[17] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x80};
+unsigned char SegCode[16] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71};
 
 void init(void){
 	pinMode(SDI, OUTPUT); 
@@ -49,26 +49,9 @@ int main(void){
 	}
 
 	init();
-
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|         Segment with 74HC595         |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|          DS connect to #17           |\n");
-	printf("|         STcp connect to #18          |\n");
-	printf("|         SHcp connect to #27          |\n");
-	printf("|                                      |\n");
-	printf("|     Control segment with 74HC595     |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
-
 	while(1){
-		for(i=0;i<17;i++){
-			printf("Print 0x%1X on Segment\n", i); // %X means hex output 
+		for(i=0;i<16;i++){
+			printf("Print %1X on Segment\n", i); // %X means hex output 
 			hc595_shift(SegCode[i]);
 			delay(500);
 		}

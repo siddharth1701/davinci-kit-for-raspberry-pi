@@ -6,26 +6,10 @@ import time
 TRIG = 16
 ECHO = 18
 
-def print_message():
-	print ("========================================")
-	print ("|              Ultrasonic              |")
-	print ("|    ------------------------------    |")
-	print ("|         Trig connect to #23          |")
-	print ("|         Echo connect to #24          |")
-	print ("|                                      |")
-	print ("|   Use ultrasonic to detect distance  |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
-
 def setup():
 	GPIO.setmode(GPIO.BOARD)
 	GPIO.setup(TRIG, GPIO.OUT)
 	GPIO.setup(ECHO, GPIO.IN)
-	print_message()
 
 def distance():
 	GPIO.output(TRIG, 0)
@@ -49,8 +33,7 @@ def distance():
 def loop():
 	while True:
 		dis = distance()
-		print (dis, 'cm')
-		print ('')
+		print ('Distance: %.2f' % dis)
 		time.sleep(0.3)
 
 def destroy():

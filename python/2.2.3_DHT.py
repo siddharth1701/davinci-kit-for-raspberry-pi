@@ -79,21 +79,6 @@ class DHT(object):
 			return self.DHTLIB_ERROR_CHECKSUM
 		return self.DHTLIB_OK
 
-def print_message():
-	print ("========================================")
-	print ("|                 DHT - 11             |")
-	print ("|    ------------------------------    |")
-	print ("|          DHT-11 connect to #17       |")
-	print ("|                                      |")	
-	print ("|          Use DHT-11 to detect        |")
-	print ("|        Humidity and Temperature      |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
-
 def loop():
 	dht = DHT(DHTPin)#create a DHT class object
 	while(True):
@@ -109,7 +94,6 @@ def loop():
 		time.sleep(2)
 		
 if __name__ == '__main__':
-	print_message()
 	try:
 		loop()
 	except KeyboardInterrupt:

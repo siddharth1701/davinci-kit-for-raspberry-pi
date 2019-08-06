@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import RPi.GPIO as GPIO
 import time
@@ -7,22 +7,6 @@ import time
 MotorPin1   = 17
 MotorPin2   = 27
 MotorEnable = 22
-
-def print_message():
-	print ("========================================")
-	print ("|                Motor                 |")
-	print ("|    ------------------------------    |")
-	print ("|     Motor pin 1 connect to #17       |")
-	print ("|     Motor pin 2 connect to #27       |")
-	print ("|     Motor enable connect to #22      |")
-	print ("|                                      |")
-	print ("|         Controlling a motor          |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
 
 def setup():
 	# Set the GPIO modes to BCM Numbering
@@ -59,7 +43,7 @@ def motor(direction):
 		print ("Stop")
 
 def main():
-	print_message()
+
 	# Define a dictionary to make the script more readable
 	# CW as clockwise, CCW as counterclockwise, STOP as stop
 	directions = {'CW': 1, 'CCW': -1, 'STOP': 0}

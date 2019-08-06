@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/02
 **********************************************************************/
 #include <wiringPi.h>
 #include <stdio.h>
@@ -53,22 +53,6 @@ int main(void){
 	}
 
 	init();
-
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|      Dot matrix with two 74HC595     |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|         SDI connect to #17           |\n");
-	printf("|         RCLK connect to #18          |\n");
-	printf("|        SRCLK connect to #27          |\n");
-	printf("|                                      |\n");
-	printf("|    Control Dot matrix with 74HC595   |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
 
 	while(1){
 		for(i=0;i<sizeof(code_H);i++){

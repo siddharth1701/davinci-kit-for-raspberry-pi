@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/01
 **********************************************************************/
 
 #include <wiringPi.h>
@@ -34,21 +34,6 @@ void LED(char* color)
 
 int main(void)
 {
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|           Tilt control LED           |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|         Tilt connect to #17          |\n");
-	printf("|       Green LED connect to #27       |\n");
-	printf("|         Red LED connect to #22       |\n");
-	printf("|                                      |\n");
-	printf("|       User Tilt to control LED       |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
 	if(wiringPiSetup() == -1){ //when initialize wiring failed,print message to screen
 		printf("setup wiringPi failed !");
 		return 1; 

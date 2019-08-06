@@ -55,12 +55,13 @@ def doorbell():
 
 def closedoor():
     GPIO.output(ledPin, GPIO.LOW)
+    Buzz.ChangeFrequency(1)
     for i in range(180, -1, -1): #make servo rotate from 180 to 0 deg
         servoWrite(i)
         time.sleep(0.001)
 
 def opendoor():
-    GPIO.output(ledPin, GPIO.LOW)
+    GPIO.output(ledPin, GPIO.HIGH)
     for i in range(0, 181, 1):   #make servo rotate from 0 to 180 deg
         servoWrite(i)     # Write to servo
         time.sleep(0.001)
@@ -69,6 +70,7 @@ def opendoor():
 
 def loop():
     while True:
+        print ('Sensor Value: %d' % GPIO.input(pirPin))
         if GPIO.input(pirPin)==GPIO.HIGH:
             opendoor()
 

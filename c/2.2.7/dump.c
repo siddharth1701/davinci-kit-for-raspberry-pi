@@ -1,9 +1,3 @@
-/*
- * dump.c
- *
- *  Created on: 2014年9月7日
- *      Author: gitetsu
- */
 #include <string.h>
 #include <ctype.h>
 #include "dump.h"

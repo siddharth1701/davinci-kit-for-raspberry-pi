@@ -1,9 +1,3 @@
-/*
- * dump.h
- *
- *  Created on: 2014年9月7日
- *      Author: gitetsu
- */
 
 #ifndef DUMP_H_
 #define DUMP_H_

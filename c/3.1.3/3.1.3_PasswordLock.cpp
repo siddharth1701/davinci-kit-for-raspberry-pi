@@ -1,3 +1,11 @@
+/**********************************************************************
+* Filename    : 3.1.3_PasswordLock.cpp
+* Description : 
+* Author      : Robot
+* E-mail      : support@sunfounder.com
+* website     : www.sunfounder.com
+* Update      : Jimmy  2019/08/06 
+**********************************************************************/
 #include "Keypad.hpp"
 #include <stdio.h>
 #include <wiringPi.h>

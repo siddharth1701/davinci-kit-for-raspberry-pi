@@ -5,25 +5,10 @@ import time
 
 servoPin = 12
 
-def print_message():
-	print ("========================================")
-	print ("|                Servo                 |")
-	print ("|    ------------------------------    |")
-	print ("|      Servo pin connect to # 18       |")
-	print ("|                                      |")
-	print ("|         Controlling a Servo          |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
-
 def map( value, fromLow, fromHigh, toLow, toHigh):
     return (toHigh-toLow)*(value-fromLow) / (fromHigh-fromLow) + toLow
 
 def setup():
-    print_message()
     global p
     GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
     GPIO.setup(servoPin, GPIO.OUT)   # Set servoPin's mode is output

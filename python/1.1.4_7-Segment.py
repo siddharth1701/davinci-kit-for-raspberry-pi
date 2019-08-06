@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import RPi.GPIO as GPIO
 import time
@@ -11,22 +11,6 @@ SRCLK = 27
 # Define a segment code from 0 to F in Hexadecimal
 # Common cathode
 segCode = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71]
-
-def print_msg():
-	print ("========================================")
-	print ("|         Segment with 74HC595         |")
-	print ("|    ------------------------------    |")
-	print ("|         SDI connect to #17           |")
-	print ("|         RCLK connect to #18          |")
-	print ("|        SRCLK connect to #27          |")
-	print ("|                                      |")
-	print ("|     Control segment with 74HC595     |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
 
 def setup():
 	GPIO.setmode(GPIO.BCM)
@@ -46,7 +30,6 @@ def hc595_shift(dat):
 	GPIO.output(RCLK, GPIO.LOW)
 
 def main():
-	print_msg()
 	while True:
 		# Shift the code one by one from segCode list
 		for code in segCode:

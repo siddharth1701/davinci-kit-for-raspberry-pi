@@ -1,3 +1,11 @@
+/**********************************************************************
+* Filename    : 3.1.4_Welcome.c
+* Description : 
+* Author      : Robot
+* E-mail      : support@sunfounder.com
+* website     : www.sunfounder.com
+* Update      : Jimmy  2019/08/06 
+**********************************************************************/
 #include <wiringPi.h>
 #include <stdio.h>
 #include <softTone.h>

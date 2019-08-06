@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/05
 **********************************************************************/
 #include "Keypad.hpp"
 #include <stdio.h>
@@ -22,20 +22,7 @@ byte colPins[COLS] = {12,3, 2, 0 }; //connect to the column pinouts of the keypa
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 int main(){
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|                 Keypad               |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|   Pin connect to #18 #23 #24 #25     |\n");
-	printf("|                  MOSI #22 #27 #17    |\n");
-	printf("|                                      |\n");
-	printf("|             Use Keypad input         |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
+
     if(wiringPiSetup() == -1){ //when initialize wiring failed,print message to screen
         printf("setup wiringPi failed !");
         return 1; 

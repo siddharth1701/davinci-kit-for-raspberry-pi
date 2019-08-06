@@ -15,23 +15,7 @@ placePin = (11,13,15,19)    # Define 4 digit's common pin
 counter = 0         # Variable counter, the number will be displayed
 t = 0               # define the Timer object
 
-def print_msg():
-	print ("========================================")
-	print ("|         4 Digit 7-Segment Display    |")
-	print ("|    ------------------------------    |")
-	print ("|     4 Digit display common pin       |")    
-	print ("|         connect to #17 #27 #22 MOSI  |")
-	print ("|     74HC595 CH_CP ST_CP DS pin       |")
-	print ("|         connect to #18 #23 #24       |")    
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
-
 def setup():
-    print_msg()
     GPIO.setmode(GPIO.BOARD)    # Number GPIOs by its physical location
     GPIO.setup(SDI, GPIO.OUT)       # Set pin mode to output
     GPIO.setup(RCLK, GPIO.OUT)

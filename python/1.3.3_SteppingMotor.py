@@ -7,25 +7,7 @@ motorPins = (12, 16, 18, 22)    #pins connected to four phase
 antiClk = (0x01,0x02,0x04,0x08) 
 clk = (0x08,0x04,0x02,0x01)
 
-def print_message():
-        print ("========================================")
-        print ("|             Stepping motor           |")
-        print ("|    ------------------------------    |")
-        print ("|          IN1 connect to # 18         |")
-        print ("|          IN2 connect to # 23         |")
-        print ("|          IN3 connect to # 24         |")
-        print ("|          IN4 connect to # 25         |")
-        print ("|                                      |")
-        print ("|     Controlling a Stepping motor     |")
-        print ("|                                      |")
-        print ("|                            SunFounder|")
-        print ("========================================\n")
-        print ('Program is running...')
-        print ('Please press Ctrl+C to end the program...')
-        input ("Press Enter to begin\n")
-
 def setup():
-    print_message()
     GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
     for pin in motorPins:
         GPIO.setup(pin,GPIO.OUT)

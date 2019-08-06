@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/05
 **********************************************************************/
 #include <wiringPi.h>
 #include <softPwm.h>
@@ -25,19 +25,7 @@ void servoWrite(int pin, int angle){    //Create a funtion, servoWrite() to cont
 int main(void)
 {
     int i;
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|                Servo                 |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|     Servo pin connect to # 18        |\n");
-	printf("|                                      |\n");
-	printf("|         Controlling a Servo          |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");    
+	  
     if(wiringPiSetup() == -1){ //when initialize wiring failed,print message to screen
         printf("setup wiringPi failed !");
         return 1; 

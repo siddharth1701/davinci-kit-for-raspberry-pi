@@ -7,22 +7,6 @@ mpu = MPU6050.MPU6050()     #instantiate a MPU6050 class object
 ac = [0]*3               #store accelerometer data
 gy = [0]*3                #store gyroscope data
 
-def print_message():
-	print ("========================================")
-	print ("|                 MPU6050              |")
-	print ("|    ------------------------------    |")
-	print ("|           SDA,SCL connect to         |")
-	print ("|   the corresponding pin of MPU6050   |")
-	print ("|                                      |")	
-	print ("|          Use MPU6050 to detect       |")
-	print ("|   Acceleration and Angular velocity  |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
-
 def setup():
     mpu.dmp_initialize()    #initialize MPU6050
     
@@ -37,7 +21,6 @@ def loop():
         time.sleep(0.1)
         
 if __name__ == '__main__':     # Program start from here
-    print_message()
     setup()
     try:
         loop()

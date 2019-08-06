@@ -13,22 +13,6 @@ code_H = [0x01,0xff,0x80,0xff,0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0xff,0xff,
 # COL  ----
 code_L = [0x00,0x7f,0x00,0xfe,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f]
 
-def print_msg():
-    print ("========================================")
-    print ("|      Dot matrix with two 74HC595     |")
-    print ("|    ------------------------------    |")
-    print ("|        SDI connect to #17            |")
-    print ("|        RCLK connect to #18           |")
-    print ("|        SRCLK connect to #27          |")
-    print ("|                                      |")
-    print ("|   Control Dot matrix with 74HC595    |")
-    print ("|                                      |")
-    print ("|                            SunFounder|")
-    print ("========================================\n")
-    print ('Program is running...')
-    print ('Please press Ctrl+C to end the program...')
-    input ("Press Enter to begin\n")
-
 def setup():
     GPIO.setmode(GPIO.BCM)    # Number GPIOs by its BCM location
     GPIO.setup(SDI, GPIO.OUT)
@@ -50,7 +34,6 @@ def hc595_shift(dat):
     GPIO.output(RCLK, GPIO.LOW)
 
 def main():
-    print_msg()
     while True:
         for i in range(0, len(code_H)):
             hc595_shift(code_L[i])

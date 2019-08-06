@@ -1,49 +1,35 @@
 #!/usr/bin/env python3
 
-import PCF8591 as ADC
-import time
+#!/usr/bin/env python3
 import RPi.GPIO as GPIO
-
-def print_message():
-    print ("========================================")
-    print ("|             Potentiometer            |")
-    print ("|    ------------------------------    |")
-    print ("|           SDA,SCL connect to         |")
-    print ("|   the corresponding pin of PCF8591   |")
-    print ("|                                      |")
-    print ("| Make potentiometer to contral a led  |")
-    print ("|                                      |")
-    print ("|                            SunFounder|")
-    print ("========================================\n")
-    print ('Program is running...')
-    print ('Please press Ctrl+C to end the program...')
-    input ("Press Enter to begin\n")
-
+import ADC0834
+import time
+LedPin = 22
 def setup():
-    ADC.setup(0x48)
-
-def loop():
-    status = 1
-    while True:
-        print ('Value:', ADC.read(0))
-        Value = ADC.read(0)
-        outvalue = map(Value,0,255,120,255)
-        ADC.write(outvalue)
-        time.sleep(0.2)
+    global led_val
+    # Set the GPIO modes to BCM Numbering
+    GPIO.setmode(GPIO.BCM)
+    # Set all LedPin's mode to output and initial level to High(3.3v)
+    GPIO.setup(LedPin, GPIO.OUT, initial=GPIO.HIGH)
+    ADC0834.setup()
+    # Set led as pwm channel and frequece to 2KHz
+    led_val = GPIO.PWM(LedPin, 2000)
+    # Set all begin with value 0
+    led_val.start(0)
 def destroy():
-    ADC.write(0)
-
-def map(x, in_min, in_max, out_min, out_max):
-        '''To map the value from arange to another'''
-        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
-
+    # Stop all pwm channel
+    led_val.stop()
+    # Release resource
+    GPIO.cleanup()
+def loop():
+    while True:
+        analogVal = ADC0834.getResult()
+        print ('analog value = %d' % analogVal)
+        led_val.ChangeDutyCycle(analogVal*100/255)
+        time.sleep(0.2)
 if __name__ == '__main__':
-    print_message()
+    setup()
     try:
-        setup()
         loop()
-    except KeyboardInterrupt: 
+    except KeyboardInterrupt: # When 'Ctrl+C' is pressed, the program destroy() will be executed.
         destroy()
-
-        
-    

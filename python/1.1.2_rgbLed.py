@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import RPi.GPIO as GPIO
 import time
@@ -8,21 +8,6 @@ COLOR = [0xFF0000, 0x00FF00, 0x0000FF, 0xFFFF00, 0xFF00FF, 0x00FFFF]
 # Set pins' channels with dictionary
 pins = {'Red':17, 'Green':18, 'Blue':27}
 
-def print_message():
-	print ("========================================")
-	print ("|               RGB  LED               |")
-	print ("|    ------------------------------    |")
-	print ("|       Red Pin connect to #17         |")
-	print ("|      Green Pin connect to #18        |")
-	print ("|       Blue Pin connect to #27        |")
-	print ("|                                      |")
-	print ("|  Make a RGB LED emits various color  |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
 
 def setup():
 	global p_R, p_G, p_B
@@ -73,7 +58,6 @@ def setColor(color):
 	print ("color_msg: R_val = %s,	G_val = %s,	B_val = %s"%(R_val, G_val, B_val))	 
 
 def main():
-	print_message()
 	while True:
 		for color in COLOR:# Assign every item in the COLOR list to the color respectively and change the color of the RGB LED via the setColor() function.
 			setColor(color)# change the color of the RGB LED

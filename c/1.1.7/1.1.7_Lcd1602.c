@@ -4,9 +4,8 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/02
 **********************************************************************/
-
 #include <stdio.h>
 #include <wiringPi.h>
 #include <wiringPiI2C.h>

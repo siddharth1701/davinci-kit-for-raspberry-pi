@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/05
 **********************************************************************/
 #include <stdio.h>
 #include <wiringPi.h>
@@ -36,22 +36,7 @@ void motorStop(){   //stop rotating
 }
 int main(void){
     int i;
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|             Stepping motor           |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|          IN1 connect to # 18         |\n");
-    printf("|          IN2 connect to # 23         |\n");
-    printf("|          IN3 connect to # 24         |\n");
-    printf("|          IN4 connect to # 25         |\n");
-	printf("|                                      |\n");
-	printf("|     Controlling a Stepping motor     |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
+	
     if(wiringPiSetup() == -1){ //when initialize wiring failed,print message to screen
         printf("setup wiringPi failed !");
         return 1; 

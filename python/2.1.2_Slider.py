@@ -8,22 +8,6 @@ slidePin = 17
 led1Pin = 22
 led2Pin = 27
 
-# Define a function to print message at the beginning
-def print_message():
-	print ("========================================")
-	print ("|              Slide Switch            |")
-	print ("|    ------------------------------    |")
-	print ("|      Middle pin of slide switch      |")
-	print ("|           connect to #17;            |")
-	print ("|                                      |")
-	print ("|slide switch to contral which led on. |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
-
 # Define a setup function for some setup
 def setup():
 	# Set the GPIO modes to BCM Numbering
@@ -37,8 +21,6 @@ def setup():
 
 # Define a main function for main process
 def main():
-	# Print messages
-	print_message()
 	while True:
 		# slide switch high, led1 on
 		if GPIO.input(slidePin) == 1:

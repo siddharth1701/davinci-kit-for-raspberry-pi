@@ -1,9 +1,4 @@
-/*
- * mfrc522_hal.c
- *
- *  Created on: 2014��9��2��
- *      Author: Administrator
- */
+
 #include <stdint.h>
 #include <unistd.h>
 #include <stdio.h>

@@ -2,29 +2,13 @@
 
 import RPi.GPIO as GPIO
 import time
-# Set #17 as LED pin
+# Set GPIO17 as LED pin
 LedPin = 17
-# Set #18 as button pin
+# Set GPIO18 as button pin
 BtnPin = 18
 
 # Set Led status to True(OFF)
 Led_status = True
-
-# Define a function to print message at the beginning
-def print_message():
-	print ("========================================")
-	print ("|          Button control LED          |")
-	print ("|    ------------------------------    |")
-	print ("|         LED connect to #17           |")
-	print ("|        Button connect to #18         |")
-	print ("|                                      |")
-	print ("|   Press button to turn on/off LED.   |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-	input ("Press Enter to begin\n")
 
 # Define a setup function for some setup
 def setup():
@@ -53,8 +37,6 @@ def swLed(ev=None):
 
 # Define a main function for main process
 def main():
-	# Print messages
-	print_message()
 	while True:
 		# Don't do anything.
 		time.sleep(1)

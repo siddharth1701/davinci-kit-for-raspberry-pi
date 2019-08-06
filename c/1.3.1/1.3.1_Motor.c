@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/05
 **********************************************************************/
 #include <wiringPi.h>
 #include <stdio.h>
@@ -23,22 +23,6 @@ int main(void){
 	pinMode(MotorPin1, OUTPUT);
 	pinMode(MotorPin2, OUTPUT);
 	pinMode(MotorEnable, OUTPUT);
-
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|                Motor                 |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|     Motor pin 1 connect to #17       |\n");
-	printf("|     Motor pin 2 connect to #27       |\n");
-	printf("|     Motor enable connect to #22      |\n");
-	printf("|                                      |\n");
-	printf("|         Controlling a motor          |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
 
 	while(1){
 		printf("Clockwise\n");

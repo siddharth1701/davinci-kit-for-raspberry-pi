@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon   
+* Update      : Jimmy  2019/08/06 
 **********************************************************************/
 #include <wiringPi.h>
 #include <stdio.h>

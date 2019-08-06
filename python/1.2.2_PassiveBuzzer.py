@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 import RPi.GPIO as GPIO
 import time
 
@@ -33,21 +32,8 @@ beat_2 = [	1, 1, 2, 2, 1, 1, 2, 2, 			# Beats of song 2, 1 means 1/8 beat
 			1, 2, 2, 1, 1, 2, 2, 1, 
 			1, 2, 2, 1, 1, 3 ]
 
-def print_message():
-	print ("========================================")
-	print ("|            Passive Buzzer            |")
-	print ("|    ------------------------------    |")
-	print ("|        Buzzer connect to #17         |")
-	print ("|                                      |")
-	print ("|          Make Buzzer playing         |")
-	print ("|                                      |")
-	print ("|                            SunFounder|")
-	print ("========================================\n")
-	print ('Program is running...')
-	print ('Please press Ctrl+C to end the program...')
-
 def setup():
-	print_message()
+
 	GPIO.setmode(GPIO.BOARD)		# Numbers GPIOs by physical location
 	GPIO.setup(Buzzer, GPIO.OUT)	# Set pins' mode is output
 	global Buzz						# Assign a global variable to replace GPIO.PWM 
@@ -68,8 +54,8 @@ def loop():
 			time.sleep(beat_2[i] * 0.5)     # delay a note for beat * 0.5s
 
 def destory():
-	Buzz.stop()					# Stop the buzzer
-	GPIO.output(Buzzer, 1)		# Set Buzzer pin to High
+	Buzz.stop()                 # Stop the buzzer
+    GPIO.output(Buzzer, 1)      # Set Buzzer pin to High
 	GPIO.cleanup()				# Release resource
 
 if __name__ == '__main__':		# Program start from here

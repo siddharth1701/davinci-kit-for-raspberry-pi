@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/01
 **********************************************************************/
 #include <stdio.h>
 #include <stdint.h>
@@ -29,22 +29,6 @@ void loop() {
 
 int main()
 {
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|                 MPU6050              |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|           SDA,SCL connect to         |\n");
-	printf("|   the corresponding pin of MPU6050   |\n");    
-	printf("|                                      |\n");
-	printf("|          Use MPU6050 to detect       |\n");	
-	printf("|   Acceleration and Angular velocity  |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
-    
     mpu.initialize();     //initialize MPU6050
     // verify connection
     printf(mpu.testConnection() ? "" : "initialize failed\n");

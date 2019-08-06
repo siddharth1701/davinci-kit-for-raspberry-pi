@@ -4,7 +4,7 @@
 * Author      : Robot
 * E-mail      : support@sunfounder.com
 * website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Update      : Daisy    2019/08/05
 **********************************************************************/
 #include <wiringPi.h>
 #include <softTone.h>
@@ -53,19 +53,6 @@ int beat_2[] = {1,1,1,3,1,1,1,3,1,1,1,1,1,1,3,1,1,1,2,1,1,1,3,1,1,1,3,3,2,3};
 int main(void)
 {
 	int i, j;
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|            Passive Buzzer            |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|         Buzzer connect to #17        |\n");
-	printf("|                                      |\n");
-	printf("|          Make Buzzer playing         |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
 	if(wiringPiSetup() == -1){ //when initialize wiring failed,print message to screen
 		printf("setup wiringPi failed !");
 		return 1; 
