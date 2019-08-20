@@ -23,7 +23,7 @@ We are looking forward to your projects and hope that you can share your achieve
  - New Release
 
 <a id="trouble"></a>
-##Trouble Shootings:
+## Trouble Shootings:
 You’ll need a new wiringPi for the Raspberry Pi 4B.
 To upgrade:
 
