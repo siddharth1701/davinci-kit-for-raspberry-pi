@@ -107,12 +107,12 @@ int main(){
             case DHTLIB_ERROR_CHECKSUM:     //data check has errors
                 printf("Humidity : %.2f, \t Temperature : %.2f\t (this value may be incorrect)\n",dht.humidity,dht.temperature);
                 break;
-            case DHTLIB_ERROR_TIMEOUT:      //reading DHT times out
-                printf("Timeout! \n");
-                break;
-            case DHTLIB_INVALID_VALUE:      //other errors
-                printf("Unknow problem! \n");
-                break;
+            // case DHTLIB_ERROR_TIMEOUT:      //reading DHT times out
+            //     printf("Timeout! \n");
+            //     break;
+            // case DHTLIB_INVALID_VALUE:      //other errors
+            //     printf("Unknow problem! \n");
+            //     break;
         }
         delay(2000);
     }   

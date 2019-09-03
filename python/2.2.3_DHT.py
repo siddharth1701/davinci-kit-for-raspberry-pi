@@ -87,10 +87,10 @@ def loop():
 			print("Humidity : %.2f,  Temperature : %.2f "%(dht.humidity,dht.temperature))
 		elif (check is dht.DHTLIB_ERROR_CHECKSUM):
 			print("Humidity : %.2f,  Temperature : %.2f  (this value may incorrect)"%(dht.humidity,dht.temperature))
-		elif (check is dht.DHTLIB_ERROR_TIMEOUT):
-			print("Timeout! ")
-		else:
-			print("unknow problem! ")
+		#elif (check is dht.DHTLIB_ERROR_TIMEOUT):
+		#	print("Timeout! ")
+		#else:
+		#	print("unknow problem! ")
 		time.sleep(2)
 		
 if __name__ == '__main__':
