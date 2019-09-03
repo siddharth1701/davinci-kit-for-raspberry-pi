@@ -26,15 +26,15 @@ We are looking forward to your projects and hope that you can share your achieve
 ## Trouble Shootings:
 You’ll need a new wiringPi for the Raspberry Pi 4B.
 To upgrade:
-
+```bash
 cd /tmp
 wget https://project-downloads.drogon.net/wiringpi-latest.deb
 sudo dpkg -i wiringpi-latest.deb
-
+```
 Check with:
-
+```bash
 gpio -v
-
+```
 and make sure it’s version 2.52. 
 
 It will hopefully be part of the official release soon, but not for now.
